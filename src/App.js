@@ -2,12 +2,15 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PageNotFound from 'containers/shared/PageNotFound/PageNotFound';
 import { adminRoutes, clientRoutes } from 'routes';
+import ClientLayout from "layouts/ClientLayout"
+import AdminLayout from "layouts/AdminLayout"
 function App() {
-  const renderRoutes = routes => {
-    return routes.map(route => {
+  const renderRoutes = (routes, Layout) => {
+    return routes.map((route, index) => {
       const { path, component, exact } = route;
       return (
-        <Route 
+        <Layout
+          key={index}
           path={path} 
           component={component} 
           exact={exact} 
@@ -20,8 +23,8 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          {renderRoutes(clientRoutes)}
-          {renderRoutes(adminRoutes)}
+          {renderRoutes(clientRoutes, ClientLayout)}
+          {renderRoutes(adminRoutes, AdminLayout)}
           <Route path="*" component={PageNotFound} />
         </Switch>
       </Router>
