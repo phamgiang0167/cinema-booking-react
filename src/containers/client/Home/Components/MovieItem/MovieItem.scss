@@ -1,0 +1,40 @@
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+  }
+.movieItem__container{
+    padding: 10px;
+    .movieItem{
+        padding: 0 10px 20px 10px;
+        box-shadow: 0 4px 4px #777;;
+        & .movieItem__img{
+            width: 100%;
+            height: 300px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: rgba(0,0,0,0.1);
+        }
+        & .movieItem__desc-name{
+            height: 80px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        & .movieItem__desc-desc{
+            font-size: 1rem;
+            margin-top: 10px;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            text-align: left;
+        }
+    }
+}
+.movieItem__desc-trailer{
+    height: 80vh;
+    width: 100%;
+}
