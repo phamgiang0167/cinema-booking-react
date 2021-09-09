@@ -1,0 +1,1 @@
+export const FETCH_ALL_MOVIES_API = 'FETCH_ALL_MOVIES_API'

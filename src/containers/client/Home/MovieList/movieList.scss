@@ -1,0 +1,19 @@
+.movieList__button{
+    & button{
+        min-width: 150px;
+        padding: 4px 8px;
+        border-radius: 5px;
+        color: black;
+        font-size: 1rem;
+        transition: all .5s;
+        border: 1px solid #03a9f4;
+        font-weight: bold;
+        &:hover{
+            background-color: #03a9f4;
+        }
+    }
+    & button + button{
+        margin-left: 20px;
+    }
+}
+

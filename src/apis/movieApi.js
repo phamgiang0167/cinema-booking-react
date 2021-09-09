@@ -9,6 +9,9 @@ const movieApi = {
   fetchMovieDetailApi(movieId) {
     return callApi(`QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${movieId}`);
   },
+  fetchMoviePaginationApi(page) {
+    return callApi(`QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=${GROUP_ID}&soTrang=${page}&soPhanTuTrenTrang=8`)
+  }
 };
 
 export default movieApi;
