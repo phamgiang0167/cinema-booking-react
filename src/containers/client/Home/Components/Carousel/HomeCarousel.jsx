@@ -2,11 +2,11 @@ import React, { useEffect } from 'react'
 
 import { Carousel } from 'antd';
 import { useDispatch, useSelector } from 'react-redux'
-import { actFetchAllBanner } from '../../modules/actions';
-import './HomeCarousel.scss'
+import { actFetchAllBanner } from '../MovieList/modules/actions';
 import { useState } from 'react';
 
 export default function HomeCarousel(props) {
+    // console.log(props.history)
     const dispatch = useDispatch()
     const [banners, setBanners] = useState([])
     useEffect(() => {
@@ -25,12 +25,13 @@ export default function HomeCarousel(props) {
             return (
                 <div key={index} className="carousel__container">
                    <div class="carousel__item" style={{backgroundImage: `url(${item.hinhAnh})`}}></div>
+                   <a className="overplay" href={`/details/${item.maPhim}`}></a>
                 </div>
             )
         })
     }
     return (
-        <Carousel>
+        <Carousel autoplay>
             {renderCarousel()}
         </Carousel>
     )

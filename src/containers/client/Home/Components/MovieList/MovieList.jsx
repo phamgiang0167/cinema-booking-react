@@ -1,11 +1,10 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-import MovieItem from '../Components/MovieItem/MovieItem'
-import { useState } from 'react'
-import { actFetchAllMovie} from '../modules/actions'
+import { useEffect, useState } from 'react'
+import MovieItem from '../MovieItem/MovieItem'
+import { actFetchAllMovie} from './modules/actions'
 import { Pagination } from 'antd';
-import './movieList.scss'
+import Loader from 'components/Loader/Loader'
 function MovieList(props) {
     const [currentPage, setCurrentPage] = useState(1)
     let totalPage = 0
@@ -32,12 +31,11 @@ function MovieList(props) {
     ]) 
     
     //get data of redux
-    let { movies } = useSelector(state => state.homeReducer)
+    let { movies, loading } = useSelector(state => state.movieListReducer)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(actFetchAllMovie())
     }, [])
-
 
     const renderMovies = (page) => {
         //find group of movies
@@ -87,9 +85,9 @@ function MovieList(props) {
         let buttons = document.getElementsByClassName('movie-group')
         for(let i = 0; i < buttons.length; i++){
             if(buttons[i].classList.contains(type)){
-                buttons[i].style.backgroundColor = "#03a9f4"
+                buttons[i].classList.add('active')
             }else{
-                buttons[i].style.backgroundColor = ""
+                buttons[i].classList.remove('active')
             }
         }
     }
@@ -107,8 +105,10 @@ function MovieList(props) {
             )
         })
     }
+
+    if(loading) return <Loader />
     return (
-        <div className="container">
+        <div className="container" id="movie__list">
             <div style={{textAlign:"left"}} class="movieList__button">
                 {renderButtonGroup()}
             </div>
@@ -117,7 +117,6 @@ function MovieList(props) {
                 {renderMovies(currentPage)}
             </div>
             <Pagination simple current={currentPage} total={totalPage*10} onChange={handleChange} />
-            
         </div>
     )
 }

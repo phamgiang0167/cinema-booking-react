@@ -8,7 +8,7 @@ const withLayout = WrappedComponent => {
       render={routeProps => (
         
         <WrappedComponent>
-          <Component {...routeProps} />
+          <Component {...routeProps} scroll={rest.scroll}/>
         </WrappedComponent>
       )}
     />

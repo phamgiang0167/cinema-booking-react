@@ -1,25 +1,22 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import HomeCarousel from 'containers/client/Home/Components/Carousel/HomeCarousel'
-import Tab from './Components/Tab/Tab'
-import MovieList from './MovieList/MovieList'
+import MovieList from './Components/MovieList/MovieList'
+import Theater from './Components/Theater/Theater'
 
-function home(props) {
+function Home(props) {
     return (
-        <div className="container">
-            <HomeCarousel />
-            <MovieList />
-            <div className="tab mx-20">
-                <Tab />
+        <div className="">
+            <HomeCarousel history={props.history}/>
+            <div style={{padding: "0 20px"}} class="container">
+                <Theater />
+            </div>
+            <div style={{marginTop: "50px"}}>
+                <MovieList />
             </div>
             
         </div>
     )
 }
 
-home.propTypes = {
-
-}
-
-export default home
+export default Home
 
