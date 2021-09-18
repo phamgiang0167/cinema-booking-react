@@ -1,4 +1,4 @@
-import bannerApi from 'apis/bannerApi'
+
 import movieApi from 'apis/movieApi'
 import {
     FETCH_ALL_MOVIES_API

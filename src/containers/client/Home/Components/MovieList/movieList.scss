@@ -1,0 +1,37 @@
+.movieList__button{
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    & button{
+        color: black;
+        font-size: 1rem;
+        transition: all .5s;
+        font-weight: bold;
+        min-width: 20%;
+        line-height: 2rem;
+        @include mediaQueryMax('small'){
+            font-size: 0.8rem;
+            min-width: none;
+        }
+        &:hover{
+            font-size: 1.2rem;
+            color: $color-orange-0;
+            @include mediaQueryMax('small'){
+                font-size: 0.9rem;
+                min-width: none;
+            }
+        }
+        &.active{
+            color: $color-orange-0;
+            font-size: 1.1rem;
+            @include mediaQueryMax('small'){
+                font-size: 0.8rem;
+                min-width: none;
+            }
+        }
+    }
+    & button + button{
+        margin-left: 20px;
+    }
+}
+

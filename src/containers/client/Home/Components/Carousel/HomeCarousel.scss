@@ -1,7 +1,9 @@
 .carousel__container{
-    padding: 10px 10px;
+    position: relative;
+    width: 100%;
+    height: 85vh;
     .carousel__item{
-        height: 450px;
+        height: 100%;
         color: #fff;
         list-style: 160px;
         text-align: center;
@@ -9,5 +11,16 @@
         background-size: cover;
         background-repeat: no-repeat;
         width: 100%;
+    }
+    .overplay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+    @include mediaQueryMax("small") {
+        height: 30vh !important;
     }
 }

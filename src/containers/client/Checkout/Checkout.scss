@@ -1,0 +1,48 @@
+.hinh_thang{
+    border-bottom: 10px solid rgb(40, 41, 41);
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 30px 6px -6px #777;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.checkout__seat{
+    display: flex;
+    flex-wrap: wrap;
+    & .checkout__seat-item{
+        width: 5%;
+        margin: 0.625%;
+        border-radius: 2px;
+        border: 1px solid black;
+        @include mediaQueryMax('medium'){
+            font-size: 0.8rem;
+        }
+        &.gheVip{
+            background-color: #f9bc60;
+        }
+        &.gheDaDat{
+            background-color: #abd1c6;
+            cursor: not-allowed;
+        }
+        &.gheDangDat{
+            background-color: #e16162;
+        }
+        &.gheDangCoNguoiDat{
+            background-color: #fa5246;
+            cursor: not-allowed;
+        }
+    }
+}
+.btn-checkout{
+    background-color: #f9bc60;
+    color: #001e1d;
+    width: 100%;
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 4px;
+    &:hover{
+        background-color: #fab041;
+    }
+}

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import './MovieItem.scss'
-
+// import './MovieItem.scss'
 import { Modal} from 'antd';
 import Button from '@material-ui/core/Button';
+import { NavLink } from 'react-router-dom';
+import {history} from '../../../../../App'
 function MovieItem(props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -24,23 +25,8 @@ function MovieItem(props) {
   };
   const { maPhim, tenPhim, biDanh, trailer, hinhAnh, hot, moTa, ngayKhoiChieu, sapChieu } = props.movie
   return (
-    <div className="movieItem__container col-6 col-md-3">
-      <div className="movieItem ">
-        <div className="movieItem__img" style={{ backgroundImage: `url(${hinhAnh})` }}></div>
-        <div className="movieItem__desc">
-          <div className="movieItem__desc-name">
-            {tenPhim}
-          </div>
-          <div className="list__btn">
-            <Button variant="contained" color="primary" >
-              Đặt vé
-            </Button>
-            {" "}
-            <Button variant="outlined" onClick={showModal} color="secondary">
-              Trailer
-            </Button>
-          </div>
-          <Modal 
+    <div className="movieItem__container col-6 col-md-4 col-lg-3">
+      <Modal 
             footer={false}
             width={1000} 
             title={tenPhim} 
@@ -55,9 +41,40 @@ function MovieItem(props) {
               allowfullscreen
             >
             </iframe>
-          </Modal>
+      </Modal>
+      <div className="movie">
+          <div className="movie-img">
+            <div className="movie-img__img">
+              <img
+                src={hinhAnh}
+                alt="movie-alt"
+                onError={e => {
+                  e.target.onerror = null;
+                  e.target.src = "/images/error.jpg";
+                }}
+              />
+            </div>
+            <div className="movie-img__overlay" onClick={() => showModal()}></div>
+            <div className="movie__play">
+              <i
+                onClick={() => showModal()}
+                className="fa fa-play"
+                aria-hidden="true"
+              />
+            </div>
+          </div>
+          <div className="movie-info">
+            <div className="info">
+              <div className="name-movie">{tenPhim}</div>
+              <div className="info-movie">103 phút - 7.3 IMDb</div>
+            </div>
+            <div className="book-ticket">
+              <NavLink to={`/details/${maPhim}`}>
+                <span>MUA VÉ</span>
+              </NavLink>
+            </div>
+          </div>
         </div>
-      </div>
     </div>
 
   )

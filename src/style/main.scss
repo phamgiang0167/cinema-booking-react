@@ -1,0 +1,11 @@
+@import "Helpers/variable";
+@import "Helpers/mixin";
+@import "Base/reset";
+@import "Helpers/extend";
+@import "../components//Header//Client//HeaderClient.scss";
+@import "../containers/client/Home/Components/Carousel/HomeCarousel.scss";
+@import "../containers/client/Home/Components/MovieList/movieList.scss";
+@import "../containers/client/Home/Components/MovieItem/MovieItem.scss";
+@import "../containers/client/MovieDetails/MovieDetails.scss";
+@import "../containers/client/Home/Components/Theater/theater.scss";
+@import "../containers/client/Checkout/Checkout.scss";
