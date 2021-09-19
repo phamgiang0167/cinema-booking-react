@@ -1,0 +1,23 @@
+.footer__client{
+    width: 100%;
+    margin: 0;
+    padding: 0 10%;
+    background-color: rgb(71, 70, 70);
+    & .footer__top{
+        width: 100%;
+        & .footer__logo{
+            width: 70px;
+            height: 80px;
+            background-position: center;
+            background-size: cover;
+            
+        }
+        & .footer__social{
+            list-style: none;
+            & li{
+                margin-right: 20px;
+                font-size: 30px;
+            }
+        }
+    }
+}

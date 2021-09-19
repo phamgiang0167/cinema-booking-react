@@ -7,6 +7,7 @@ import {
 } from './types'
 import { findIndex } from 'lodash'
 import swal from "sweetalert"
+import { Redirect } from 'react-router'
 
 
 const actFetchTicketRoomApi = (data) => ({
@@ -53,8 +54,13 @@ export const actBookingTiketApi= (ticketDetail) => {
                 })
             })
             if(!duplicatedSeat){
-                const result = await ticketApi.postBookingTicket(ticketDetail)
-                swal("Oops", "Đặt vé thành công", "success");
+                ticketApi.postBookingTicket(ticketDetail)
+                    .then(() => {
+                        swal("Oops", "Đặt vé thành công", "success");
+                        setTimeout(() => {
+                            location.replace('/history')
+                        }, 2000)
+                    })
             }
         }catch(err) {
             console.error(err)

@@ -112,13 +112,13 @@ export default function MovieDetails(props) {
 
     if(loading) return <Loader />
     
-    return (<div style={{ backgroundImage: `url(${movieDetail.hinhAnh})`, backgroundPosition: "center", backgroundSize: "cover", height: "110vh" }}>
+    return (<div style={{ backgroundImage: `url(${movieDetail.hinhAnh})`, backgroundPosition: "center", backgroundSize: "cover", height: "100%" }}>
         <CustomCard
             effectColor="rgba(255,255,255,0.4)"
             color="rgba(255,255,255,0.4)"
             blur={80}
             borderRadius={0}
-            style={{ height: "110vh" }}
+            style={{ height: "100%" }}
         >
             <div className="detail__container">
                 <div className="row movie__detail-container">
