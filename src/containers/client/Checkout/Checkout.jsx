@@ -158,14 +158,7 @@ function Checkout() {
 export default function (props) {
     return (
         <div className="md:p-5" style={{marginTop: "60px"}}>
-            <Tabs defaultActiveKey="1" >
-                <TabPane tab="Chọn ghế và thanh toán" key="1">
-                    <Checkout {...props} />
-                </TabPane>
-                <TabPane tab="Kết quả đặt vé" key="2">
-                    <BookingHistory {...props} />
-                </TabPane>
-            </Tabs>
+           <Checkout {...props} />
         </div>
     )
 }

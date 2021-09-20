@@ -19,7 +19,7 @@ export const actLoginApi = (user) => {
             const result = await userApi.postLogin(user)
             if(result.status === 200){
                 dispatch(actLogin(result.data.content))
-                history.push('/login')
+                history.push('/')
             }
         }catch(err) {
             swal("Oops","Thông tin tài khoản không đúng", "error")

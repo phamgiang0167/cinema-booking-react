@@ -13,7 +13,6 @@ const actHistoryTicket = (data) => ({
 
 
 export const actHistoryTicketApi= () => {
-    // console.log('a')
     return async dispatch => {
         try {
             const result = await userApi.getTicketHistory()

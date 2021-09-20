@@ -16,8 +16,11 @@
         margin: 0.625%;
         border-radius: 2px;
         border: 1px solid black;
-        @include mediaQueryMax('medium'){
-            font-size: 0.8rem;
+        @include mediaQueryMax('large'){
+            font-size: 0.7rem;
+        }
+        @include mediaQueryMax('small'){
+            font-size: 0.5rem;
         }
         &.gheVip{
             background-color: #f9bc60;

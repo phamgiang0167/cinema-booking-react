@@ -1,32 +1,32 @@
 import React from 'react'
-import { Tabs } from 'antd';
-import { List, Avatar } from 'antd';
-import {useSelector} from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import {actHistoryTicketApi} from './modules/actions'
+import { actHistoryTicketApi } from './modules/actions'
+import Loader from 'components/Loader/Loader';
+import './BookingHistory.scss'
+import historyTicketReducer from './modules/reducer';
+import HistoryItem from './components/HistoryItem/HistoryItem';
 export default function BookingHistory(props) {
-    const {historyTicket} = useSelector(state => state.historyTicketReducer)
+    const { historyTicket, loading } = useSelector(state => state.historyTicketReducer)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(actHistoryTicketApi())
     }, [])
     console.log(historyTicket)
+    if (loading) return <Loader />
     return (
-        <div className="p-5">
-            <List
-                itemLayout="horizontal"
-                dataSource={historyTicket}   
-                renderItem={item => (
-                    <List.Item>
-                        <List.Item.Meta
-                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                            title={<a href="https://ant.design">{item.title}</a>}
-                            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-                        />
-                    </List.Item>
-                )}
-            />
+        <div className="history">
+            <div className="p-5 ">
+                <h3>Lịch sử đặt vé</h3>
+            </div>
+            <div className="row" style={{width: "100%", margin: "0"}}>
+               {historyTicket?.map((item) => {
+                    return (
+                        <HistoryItem historyTicket={item} />
+                    )
+                })}
+            </div>
         </div>
+
     )
 }

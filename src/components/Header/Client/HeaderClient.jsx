@@ -14,7 +14,7 @@ export default function Navbar(props) {
       <Fragment>
         <a className="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-user"></i>{' '}{userLoggedIn.hoTen}</a>
         <div className="dropdown-menu" aria-labelledby="dropdownId">
-          <NavLink className="dropdown-item" to={link_1.link}>{link_1.name}</NavLink>
+          <NavLink className="dropdown-item " to={link_1.link}>{link_1.name}</NavLink>
           <NavLink className="dropdown-item" to={link_2.link}>{link_2.name}</NavLink>
           {userLoggedIn != "Tài khoản" ? 
             (
@@ -50,8 +50,8 @@ export default function Navbar(props) {
               <a className="nav-link" href="#movie__list">Phim</a>
             </li>
           </ul>
-          <ul className="navbar-nav mt-2 mt-lg-0">
-            <li className="nav-item dropdown">
+          <ul className="navbar-nav mt-lg-0">
+            <li className="nav-item dropdown dropleft">
               {renderAccountOptions()}
             </li>
           </ul>

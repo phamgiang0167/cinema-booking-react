@@ -109,7 +109,7 @@ export default function Register() {
                                 </label>
                                 <input
                                     onChange={formik.handleChange}
-                                    name="soDt"
+                                    name="soDT"
                                     className="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500"
                                     type placeholder="Enter your phone"
                                 />
@@ -131,7 +131,7 @@ export default function Register() {
                                 </button>
                             </div>
                             <p className="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">
-                                <span>Đã có tài kohanr?</span>
+                                <span>Đã có tài khoan?</span>
                                 <Link to="/login" className="text-indigo-400 hover:text-blue-500 no-underline hover:underline cursor-pointer transition ease-in duration-300">Đăng nhập</Link>
                             </p>
                         </form>

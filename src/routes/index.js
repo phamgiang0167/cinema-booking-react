@@ -6,6 +6,7 @@ const Checkout = lazy(() => import('../containers/client/Checkout/Checkout'))
 const Login = lazy(() => import('../containers/client/Login/Login'))
 const Home = lazy(() => import('../containers/client/Home/Home'))
 const Register = lazy(() => import('../containers/client/Register/Register'))
+const BookingHistory = lazy(() => import('../containers/client/BookingHistory/BookingHistory'))
 export const clientRoutes = [
     {
         path: '/',
@@ -31,7 +32,12 @@ export const clientRoutes = [
       path: '/register',
       component: Register,
       exact: true
-    }
+    },
+    {
+      path: '/history',
+      component: BookingHistory,
+      exact: true
+    },
 
 ];
 

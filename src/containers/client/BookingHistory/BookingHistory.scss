@@ -1,0 +1,28 @@
+.history{
+    margin-top: 60px;
+    width: 100%;
+    height: 100%;
+    & .history__item{
+        width: 100%;
+        & .history__logo{
+            width: 30%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        & .history__details{
+            & .history__details-name{
+    
+            }
+            & .history__details-info{
+    
+            }
+        }
+        & .history__price{
+            color: #4fc4cf;
+            span{
+                margin-left: 10px;
+            }
+        }
+    }
+}
