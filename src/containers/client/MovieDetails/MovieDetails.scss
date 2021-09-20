@@ -1,6 +1,6 @@
 .detail__container{
-    padding: 0 20%;
-    @include mediaQueryMax('medium'){
+    padding: 60px 20%;
+    @include mediaQueryMax('large'){
         padding: 0 5px;
     }
     .movie__detail-container{
@@ -48,18 +48,19 @@
     }
     .movie__calendar{
         margin-top: 20px;
+        
         &.ant-tabs > .ant-tabs-nav{
             background-color: rgba(0,0,0,0.2) !important;
-            
+            color: blue;
         }
         .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn,
         .ant-tabs-tab .ant-tabs-tab-btn
         {
-            color: #33272a !important;
+            color: #e9221f !important;
         }
         .ant-tabs-ink-bar {
             position: absolute;
-            background: #272343;
+            background: #ff6e6c;
             pointer-events: none;
         }
         // .ant-tabs-tabpane .ant-tabs-tabpane-active{

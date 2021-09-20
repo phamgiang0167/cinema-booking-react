@@ -4,7 +4,7 @@ import {
     LOGIN
 } from './types'
 import {history} from '../../../../App'
-
+import swal from "sweetalert"
 
 const actLogin = (data) => ({
     type: LOGIN,
@@ -17,13 +17,12 @@ export const actLoginApi = (user) => {
     return async dispatch => {
         try {
             const result = await userApi.postLogin(user)
-            // console.log(result)
             if(result.status === 200){
                 dispatch(actLogin(result.data.content))
-                history.goBack()
+                history.push('/')
             }
         }catch(err) {
-            console.error(err)
+            swal("Oops","Thông tin tài khoản không đúng", "error")
         }
     }
 }

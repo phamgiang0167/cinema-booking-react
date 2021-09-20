@@ -5,6 +5,8 @@
     border-radius: 3px;
     font-weight: bold;
     transition: .3s all;
+    height: 100%;
+    margin: auto 0;
     @include mediaQueryMax('small'){
         float: none;
         width: 100%;

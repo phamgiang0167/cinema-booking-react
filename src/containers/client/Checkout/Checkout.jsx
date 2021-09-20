@@ -51,7 +51,6 @@ function Checkout() {
             )
         })
     }
-    // console.log(seatBeingBooked)
     const handleCheckout = () => {
         if (seatBeingBooked.length == 0) {
             swal("Oops!", "Bạn chưa chọn ghế nào!", "error");
@@ -92,6 +91,25 @@ function Checkout() {
                     </div>
                     <div className="checkout__seat">
                         {renderSeat()}
+                        <div className="row" style={{marginTop: "20px", width: "100%"}}>
+                            <div className="col-md-3 col-6 d-flex align-items-center">
+                                <div className="checkout__seat-item" style={{width: "30px", height: "30px"}}></div>
+                                <div>Ghế thường</div>
+                            </div>
+                            <div className="col-md-3 col-6 d-flex align-items-center">
+                                <div className="checkout__seat-item gheVip" style={{width: "30px", height: "30px"}}></div>
+                                <div>Ghế Vip</div>
+                            </div>
+                            <div className="col-md-3 col-6  d-flex align-items-center">
+                                <div className="checkout__seat-item gheDangDat" style={{width: "30px", height: "30px"}}></div>
+                                <div>Ghế Đang chọn</div>
+                            </div>
+                            <div className="col-md-3 col-6 d-flex align-items-center">
+                                <div className="checkout__seat-item gheDaDat" style={{width: "30px", height: "30px"}}></div>
+                                <div>Ghế đã được đặt</div>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
                 <div className="col-md-4">
@@ -135,20 +153,12 @@ function Checkout() {
             </div>
         </div>
     )
-
 }
 
 export default function (props) {
     return (
-        <div className="md:p-5" >
-            <Tabs defaultActiveKey="1" >
-                <TabPane tab="Chọn ghế và thanh toán" key="1">
-                    <Checkout {...props} />
-                </TabPane>
-                <TabPane tab="Kết quả đặt vé" key="2">
-                    <BookingHistory {...props} />
-                </TabPane>
-            </Tabs>
+        <div className="md:p-5" style={{marginTop: "60px"}}>
+           <Checkout {...props} />
         </div>
     )
 }

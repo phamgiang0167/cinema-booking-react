@@ -7,6 +7,7 @@ import {
 } from './types'
 import { findIndex } from 'lodash'
 import swal from "sweetalert"
+import { Redirect } from 'react-router'
 
 
 const actFetchTicketRoomApi = (data) => ({
@@ -39,7 +40,7 @@ export const actBookingTiketApi= (ticketDetail) => {
         try {
             let theaterInfo = await ticketApi.getChiTietPhongVe(ticketDetail.maLichChieu)
             let listSeat = theaterInfo.data.content.danhSachGhe
-            console.log(listSeat)
+            // console.log(listSeat)
             let duplicatedSeat = false
             listSeat.forEach(e =>{
                 ticketDetail.danhSachVe.forEach(ticket => {
@@ -53,8 +54,13 @@ export const actBookingTiketApi= (ticketDetail) => {
                 })
             })
             if(!duplicatedSeat){
-                const result = await ticketApi.postBookingTicket(ticketDetail)
-                swal("Oops", "Đặt vé thành công", "success");
+                ticketApi.postBookingTicket(ticketDetail)
+                    .then(() => {
+                        swal("Oops", "Đặt vé thành công", "success");
+                        setTimeout(() => {
+                            location.replace('/history')
+                        }, 2000)
+                    })
             }
         }catch(err) {
             console.error(err)

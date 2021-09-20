@@ -1,0 +1,20 @@
+.history{
+    .history__item{
+        padding: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        transition: .5s all;
+        .history__image{
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0 2.5%;
+            width: 25%;
+            height: 140px;
+        }
+        &:hover{
+            transform: translateY(-5%);
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);;
+        }
+    }
+    
+}

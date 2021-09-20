@@ -1,8 +1,8 @@
 .movieItem__container{
     .movie {
-    padding: 0 $pd-2;
-    margin-bottom: 25px;
-    cursor: pointer;
+      padding: 0 $pd-2;
+      margin-bottom: 25px;
+      cursor: pointer;
     .movie-img {
       position: relative;
       border-radius: 5px;
@@ -10,6 +10,9 @@
       img {
         height: 330px;
         width: 100%;
+        @include mediaQueryMax('extra-large'){
+          height: 250px;
+        }
       }
       .movie-img__overlay {
         z-index: 99;

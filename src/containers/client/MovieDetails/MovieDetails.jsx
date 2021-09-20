@@ -118,7 +118,7 @@ export default function MovieDetails(props) {
             color="rgba(255,255,255,0.4)"
             blur={80}
             borderRadius={0}
-            style={{ height: "110vh" }}
+            style={{ height: "100%" }}
         >
             <div className="detail__container">
                 <div className="row movie__detail-container">
