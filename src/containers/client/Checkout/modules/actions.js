@@ -1,13 +1,9 @@
 
 import ticketApi from 'apis/ticketApi'
-import { connection } from '../../../../index'
-import { get } from 'jquery'
 import {
     TICKET_ROOM_MANAGEMENT
 } from './types'
-import { findIndex } from 'lodash'
 import swal from "sweetalert"
-import { Redirect } from 'react-router'
 
 
 const actFetchTicketRoomApi = (data) => ({
@@ -25,7 +21,7 @@ export const actFetchTicketRoom = (id) => {
     return async dispatch => {
         try {
             const result = await ticketApi.getChiTietPhongVe(id)
-            if(result.status == 200){
+            if(result.status === 200){
                 dispatch(actFetchTicketRoomApi(result.data.content))
             }
         }catch(err) {
@@ -44,11 +40,11 @@ export const actBookingTiketApi= (ticketDetail) => {
             let duplicatedSeat = false
             listSeat.forEach(e =>{
                 ticketDetail.danhSachVe.forEach(ticket => {
-                    if(ticket.maGhe == e.maGhe){
+                    if(ticket.maGhe === e.maGhe){
                         if(e.taiKhoanNguoiDat != null){
                             swal("Oops", "Một vài vé của bạn vừa có người đặt mất", "error");
                             duplicatedSeat = true
-                            location.reload()
+                            window.location.reload()
                         }
                     }
                 })
@@ -58,7 +54,7 @@ export const actBookingTiketApi= (ticketDetail) => {
                     .then(() => {
                         swal("Oops", "Đặt vé thành công", "success");
                         setTimeout(() => {
-                            location.replace('/history')
+                            window.location.replace('/history')
                         }, 2000)
                     })
             }

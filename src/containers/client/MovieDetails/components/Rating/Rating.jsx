@@ -15,15 +15,13 @@ export default function Rating(props) {
             }
         }
         return star.map((item, index) => {
-            if (item == "full") {
+            if (item === "full") {
                 return (<i class="fas fa-star"></i>)
             }
-            if (item == 'half') {
+            if (item === 'half') {
                 return (<i class="fas fa-star-half-alt"></i>)
             }
-            if (item == 'none') {
-                return (<i class="far fa-star"></i>)
-            }
+            return (<i class="far fa-star"></i>)
         })
     }
     const renderPercentage = () => {

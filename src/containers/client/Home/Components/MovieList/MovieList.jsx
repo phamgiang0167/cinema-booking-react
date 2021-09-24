@@ -40,7 +40,7 @@ function MovieList(props) {
     const renderMovies = (page) => {
         //find group of movies
         let group = groupMovie.filter(item => {
-            return item.status == true
+            return item.status === true
         })
 
         //active button
@@ -49,10 +49,10 @@ function MovieList(props) {
         
         //filter movies by group
         moviesRender = movies.filter(item => {
-            if(group[0].type == 'all'){
+            if(group[0].type === 'all'){
                 return item
             }
-            return item[group[0].type] == true
+            return item[group[0].type] === true
         })
 
         //set totalPage, currentPage
@@ -72,7 +72,7 @@ function MovieList(props) {
 
     const changeGroupMovie = (type) => {
         let newGroups = groupMovie.map(item => {
-            if(item.type == type){
+            if(item.type === type){
                 return {...item, status: true}
             }else{
                 return {...item, status: false}

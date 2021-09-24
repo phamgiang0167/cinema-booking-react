@@ -1,7 +1,6 @@
 import React, { useState }  from 'react'
 import moment from 'moment';
 import { Modal } from 'antd';
-import historyTicketReducer from '../../modules/reducer';
 export default function HistoryItem(props) {
     const { historyTicket } = props
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -16,7 +15,7 @@ export default function HistoryItem(props) {
     const handleCancel = () => {
         setIsModalVisible(false);
     };
-    console.log(historyTicket)
+    // console.log(historyTicket)
     return (
         <div className="col-lg-4 col-md-6" style={{ padding: "10px 20px" }}>
             <div className="shadow-md rounded-2xl history__item">

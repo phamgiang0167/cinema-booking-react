@@ -1,36 +1,35 @@
 import React from 'react'
 import { Redirect, useParams } from 'react-router'
-import { USER_LOGIN } from 'settings/apiConfig'
 import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react'
+import { useEffect, Fragment } from 'react'
+
+import { USER_LOGIN } from 'settings/apiConfig'
 import { actFetchTicketRoom, actBookingTiketApi, actSeatPlan } from './modules/actions'
-import { Fragment } from 'react'
-import { SEAT_PLAN } from './modules/types'
-import { Tabs } from 'antd';
-import { List, Avatar } from 'antd';
-import BookingHistory from '../BookingHistory/BookingHistory'
+
+//swal
 import swal from 'sweetalert';
+
+//component
 import Loader from 'components/Loader/Loader'
-const { TabPane } = Tabs;
 function Checkout() {
-    if (!localStorage.getItem(USER_LOGIN)) {
-        return <Redirect to="/login" />
-    }
-    const { userLogin } = useSelector(state => state.userManagementReducer)
-    const { ticketRoomDetail, seatBeingBooked, seatSomeoneElse, loading } = useSelector(state => state.ticketRoomDetailReducer)
     const dispatch = useDispatch()
     const { id } = useParams()
-    // console.log(ticketRoomDetail)
+    const { userLogin } = useSelector(state => state.userManagementReducer)
+    const { ticketRoomDetail, seatBeingBooked, seatSomeoneElse, loading } = useSelector(state => state.ticketRoomDetailReducer)
+
+    const { thongTinPhim, danhSachGhe } = ticketRoomDetail
     useEffect(() => {
         dispatch(actFetchTicketRoom(id))
     }, [])
-
-    const { thongTinPhim, danhSachGhe } = ticketRoomDetail
+    if (!localStorage.getItem(USER_LOGIN)) {
+        return <Redirect to="/login" />
+    }
+    // console.log(ticketRoomDetail)
 
     const renderSeat = () => {
         return danhSachGhe?.map((item, index) => {
             let className = ''
-            className = item.loaiGhe == "Thuong" ? "gheThuong" : "gheVip"
+            className = item.loaiGhe === "Thuong" ? "gheThuong" : "gheVip"
             if (seatBeingBooked.includes(item)) {
                 className = "gheDangDat"
             }
@@ -52,7 +51,7 @@ function Checkout() {
         })
     }
     const handleCheckout = () => {
-        if (seatBeingBooked.length == 0) {
+        if (seatBeingBooked.length === 0) {
             swal("Oops!", "Bạn chưa chọn ghế nào!", "error");
         }else {
             swal({
@@ -87,7 +86,7 @@ function Checkout() {
 
                     </div>
                     <div className='hinh_thang'>
-                        <p>Man Hinh</p>
+                        <p>Màn hình</p>
                     </div>
                     <div className="checkout__seat">
                         {renderSeat()}

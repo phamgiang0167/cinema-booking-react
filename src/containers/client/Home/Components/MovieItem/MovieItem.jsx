@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
-// import './MovieItem.scss'
 import { Modal} from 'antd';
-import Button from '@material-ui/core/Button';
 import { NavLink } from 'react-router-dom';
-import {history} from '../../../../../App'
 function MovieItem(props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -23,7 +20,7 @@ function MovieItem(props) {
       video.pause();
     }
   };
-  const { maPhim, tenPhim, biDanh, trailer, hinhAnh, hot, moTa, ngayKhoiChieu, sapChieu } = props.movie
+  const { maPhim, tenPhim,trailer, hinhAnh } = props.movie
   return (
     <div className="movieItem__container col-6 col-md-4 col-lg-3">
       <Modal 

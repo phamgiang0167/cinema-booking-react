@@ -19,6 +19,11 @@
         width: 100%;
         height: 100%;
         cursor: pointer;
+        transition: all .5s;
+        background: linear-gradient(to top, $color-black-0, transparent 90%);
+        // &:hover{
+        //     background: linear-gradient(to top, $color-black-0, transparent 100%);
+        // }
     }
     @include mediaQueryMax("small") {
         height: 30vh !important;

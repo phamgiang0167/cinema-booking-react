@@ -1,4 +1,4 @@
-import { GROUP_ID } from 'settings/apiConfig';
+
 import callApi from 'utils/callApi';
 
 const ticketApi = {

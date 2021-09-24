@@ -1,7 +1,7 @@
 .detail__container{
     padding: 60px 20%;
     @include mediaQueryMax('large'){
-        padding: 0 5px;
+        padding: 60px 5px;
     }
     .movie__detail-container{
         display: flex;
@@ -20,7 +20,7 @@
                 margin: auto 20px;
                 text-align: left;
                 font-weight: bold;
-                color: #fff;
+                color: #d03940;
                 & p:nth-child(2){
                     text-transform: uppercase;
                     font-size: 1.4rem;
@@ -67,17 +67,18 @@
         //     display: ;
         // }
         button{
-            background-color: #8c7851;
+            color: #d03940;
+            border: 1px solid #d03940;
             margin: auto auto;
             height: 100%;
-            color: #fffffe;
             line-height: 100%;
             text-align: end;
             padding: 10px 20px;
             border-radius: 4px;
             transition: .3s all;
             &:hover{
-                background-color: #020826;
+                background-color: #d03940;
+                color: white;
             }
         }
     }

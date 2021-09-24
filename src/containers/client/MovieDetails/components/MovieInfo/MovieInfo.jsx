@@ -1,4 +1,4 @@
-import { CollectionsOutlined } from '@material-ui/icons'
+
 import React from 'react'
 import moment from 'moment'
 import './MovieInfo.scss'

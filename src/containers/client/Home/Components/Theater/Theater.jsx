@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
@@ -12,6 +12,9 @@ import { actFetchAllTheaterSystem } from './modules/actions'
 
 //moment
 import moment from 'moment'
+
+//swal
+import swal from 'sweetalert'
 
 import { Collapse } from 'antd';
 
@@ -150,7 +153,19 @@ export default function Theater(props) {
                                     {createDateOptions()}
                                 </Select>
                             </FormControl>
-                            <button className="button__booking col-sm-1" onClick={() => history.push(`checkout/${state.date.maLichChieu}`)}>Đặt vé</button>
+                            <button 
+                                className="button__booking col-sm-1" 
+                                onClick={
+                                    () => {
+                                        if(state.date.maLichChieu === undefined){
+                                            swal('Bạn chưa chọn lịch chiếu')
+                                        }else{
+                                            history.push(`checkout/${state.date.maLichChieu}`)
+                                        }
+                                    }}
+                            >
+                                Đặt vé
+                            </button>
                         </div>
 
                     </div>

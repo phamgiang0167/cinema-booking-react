@@ -2,7 +2,6 @@ import React from 'react'
 import './Register.scss'
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux'
-import { } from 'react'
 import { actRegisterApi } from './modules/actions'
 import { Link } from 'react-router-dom';
 

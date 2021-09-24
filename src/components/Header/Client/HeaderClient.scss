@@ -1,16 +1,56 @@
-.header{
+#header{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 999;
     background-color: #fff;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
     height: 60px;
+    transition: all .5s;
     & .navbar{
         background-color: #fff;
+        & .header__brand{
+            color: transparent;
+            background-image: linear-gradient(
+                to right bottom,
+                #d03940,
+                #00aefd
+            );
+            background-clip: text;
+            display: inline-block;
+            -webkit-background-clip:text ;
+        }
+        & .navbar-nav .nav-item .nav-link{
+            font-size: 1rem;
+            // padding: 20px;
+            padding: 0;
+            margin: 10px 20px;
+            color: #d03940;
+            font-weight: 500;
+            overflow-x: hidden;
+            .line{
+                height: 2px;
+                width: 100%;
+                background-color: black;
+                position: relative;
+                transform: translateX(-101%);
+                transition: all .5s;
+                background-color: #d03940;
+            }
+            &:hover .line{
+                transform: translateX(0%);
+            }
+        }
     }
     & .collapse.navbar-collapse{
         background-color: #fff;
+    }
+    .header__logo{
+        height: 40px;
+        width: 40px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-right: 10px;
     }
 }

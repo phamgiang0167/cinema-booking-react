@@ -1,15 +1,3 @@
-import React, { useState } from 'react'
-import { CustomCard } from '@tsamantanis/react-glassmorphism'
-import '@tsamantanis/react-glassmorphism/dist/index.css'
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-import { useParams } from 'react-router'
-import { useHistory } from 'react-router-dom'
-
-//antd
-import { Tabs } from 'antd';
-const { TabPane } = Tabs;
-
 //component...
 import Rating from './components/Rating/Rating'
 import { actFetchMovieDetail } from './modules/actions'
@@ -24,6 +12,20 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MovieInfo from './components/MovieInfo/MovieInfo'
 import Loader from 'components/Loader/Loader'
+import { CustomCard } from '@tsamantanis/react-glassmorphism'
+import '@tsamantanis/react-glassmorphism/dist/index.css'
+
+//react
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { useParams } from 'react-router'
+import { useHistory } from 'react-router-dom'
+
+//antd
+import { Tabs } from 'antd';
+const { TabPane } = Tabs;
+
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -82,7 +84,7 @@ export default function MovieDetails(props) {
                         <div style={{ padding: "20px 0" }}>
                             <button
                                 onClick={() => {
-                                    if (calendarCode == '') {
+                                    if (calendarCode === '') {
                                         swal('Bạn chưa chọn ngày giờ chiếu!')
                                     } else {
 

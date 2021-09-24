@@ -2,7 +2,6 @@ import React from 'react'
 import './Login.scss'
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux'
-import { } from 'react'
 import { actLoginApi } from './modules/actions'
 import { Link } from 'react-router-dom';
 export default function Login() {

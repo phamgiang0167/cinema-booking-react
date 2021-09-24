@@ -1,18 +1,23 @@
 .button__booking{
     float: right;
-    background-color: $color-orange-1;
+    // background-color: $color-orange-1;
     padding: 10px 20px;
     border-radius: 3px;
     font-weight: bold;
     transition: .3s all;
     height: 100%;
     margin: auto 0;
+    background: transparent;
+    border: 1px solid #d03940;
+    color: #d03940;
+    transition: all .5s;
     @include mediaQueryMax('small'){
         float: none;
         width: 100%;
     }
     &:hover{
-        background-color: $color-orange-0;
-        color: $color-white-0
+        background: #d03940;
+        border-color: #d03940;
+        color: #fff;
     }
 }

@@ -28,7 +28,7 @@ const ticketRoomDetailReducer = (state = initialState, {type, payload}) =>{
             // console.log(state)
             let seatBeingBookedUpdate = [...state.seatBeingBooked]
             let index = seatBeingBookedUpdate.findIndex((item) => item.maGhe === payload.maGhe)
-            if(index != -1){
+            if(index !== -1){
                 seatBeingBookedUpdate.splice(index, 1)
             }else{
                 seatBeingBookedUpdate.push(payload)

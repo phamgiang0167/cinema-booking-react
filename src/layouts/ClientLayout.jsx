@@ -1,10 +1,10 @@
-const { Fragment } = require("react")
 import HeaderClient from '../components/Header/Client/HeaderClient'
 import withLayout from '../hocs/withLayout'
 import React from 'react';
 import { Suspense } from 'react'
 import FooterClient from 'components/Footer/FooterClient';
 import Loader from 'components/Loader/Loader';
+const { Fragment } = require("react")
 function ClientLayout(props){
     // console.log(props)
     return (

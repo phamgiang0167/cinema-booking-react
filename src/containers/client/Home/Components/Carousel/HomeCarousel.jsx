@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react'
 
 import { Carousel } from 'antd';
-import { useDispatch, useSelector } from 'react-redux'
-import { actFetchAllBanner } from '../MovieList/modules/actions';
 import { useState } from 'react';
 
 export default function HomeCarousel(props) {
     // console.log(props.history)
-    const dispatch = useDispatch()
     const [banners, setBanners] = useState([])
     useEffect(() => {
         async function fetchAllBanner(){
