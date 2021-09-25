@@ -7,8 +7,7 @@ import { USER_LOGIN } from 'settings/apiConfig'
 import { actFetchTicketRoom, actBookingTiketApi, actSeatPlan } from './modules/actions'
 
 //swal
-import swal from 'sweetalert';
-
+import Swal from 'sweetalert2'
 //component
 import Loader from 'components/Loader/Loader'
 function Checkout() {
@@ -51,30 +50,48 @@ function Checkout() {
         })
     }
     const handleCheckout = () => {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: 'btn btn-success',
+              cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
         if (seatBeingBooked.length === 0) {
-            swal("Oops!", "Bạn chưa chọn ghế nào!", "error");
+            Swal.fire(
+                '',
+                'Bạn chưa chon ghế nào?',
+                'question'
+            )
         }else {
-            swal({
-                title: "Bạn có chắc muốn đặt vé?",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-                .then((confirm) => {
-                    if (confirm) {
-                        let danhSachVe = []
-                        for (let i = 0; i < seatBeingBooked.length; i++) {
-                            danhSachVe.push({
-                                maGhe: seatBeingBooked[i].maGhe,
-                                giaVe: seatBeingBooked[i].giaVe
-                            })
-                        }
-                        dispatch(actBookingTiketApi({
-                            maLichChieu: id,
-                            danhSachVe: danhSachVe
-                        }))
+            swalWithBootstrapButtons.fire({
+                title: 'Bạn có chắc muốn đặt vé?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Có!',
+                cancelButtonText: 'Không',
+                reverseButtons: true
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    let danhSachVe = []
+                    for (let i = 0; i < seatBeingBooked.length; i++) {
+                        danhSachVe.push({
+                            maGhe: seatBeingBooked[i].maGhe,
+                            giaVe: seatBeingBooked[i].giaVe
+                        })
                     }
-            });
+                    dispatch(actBookingTiketApi({
+                        maLichChieu: id,
+                        danhSachVe: danhSachVe
+                    }))
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                  swalWithBootstrapButtons.fire(
+                    '',
+                    'Ghế của bạn chưa được đặt :)',
+                    'error'
+                  )
+                }
+              })
         }
     }
     if(loading) return <Loader />
@@ -91,19 +108,19 @@ function Checkout() {
                     <div className="checkout__seat">
                         {renderSeat()}
                         <div className="row" style={{marginTop: "20px", width: "100%"}}>
-                            <div className="col-md-3 col-6 d-flex align-items-center">
+                            <div className="col-lg-3 col-6 d-flex align-items-center">
                                 <div className="checkout__seat-item" style={{width: "30px", height: "30px"}}></div>
                                 <div>Ghế thường</div>
                             </div>
-                            <div className="col-md-3 col-6 d-flex align-items-center">
+                            <div className="col-lg-3 col-6 d-flex align-items-center">
                                 <div className="checkout__seat-item gheVip" style={{width: "30px", height: "30px"}}></div>
                                 <div>Ghế Vip</div>
                             </div>
-                            <div className="col-md-3 col-6  d-flex align-items-center">
+                            <div className="col-lg-3 col-6  d-flex align-items-center">
                                 <div className="checkout__seat-item gheDangDat" style={{width: "30px", height: "30px"}}></div>
                                 <div>Ghế Đang chọn</div>
                             </div>
-                            <div className="col-md-3 col-6 d-flex align-items-center">
+                            <div className="col-lg-3 col-6 d-flex align-items-center">
                                 <div className="checkout__seat-item gheDaDat" style={{width: "30px", height: "30px"}}></div>
                                 <div>Ghế đã được đặt</div>
                             </div>
@@ -146,7 +163,7 @@ function Checkout() {
                         class="btn-checkout"
                         onClick={() => { handleCheckout() }}
                     >
-                        Dat ve
+                        Đặt vé
                     </button>
                 </div>
             </div>
@@ -156,7 +173,7 @@ function Checkout() {
 
 export default function (props) {
     return (
-        <div className="md:p-5" style={{marginTop: "60px"}}>
+        <div className="md:p-5" style={{margin: "60px 0"}}>
            <Checkout {...props} />
         </div>
     )

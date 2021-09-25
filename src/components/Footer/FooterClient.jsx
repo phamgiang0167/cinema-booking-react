@@ -2,19 +2,51 @@ import React from 'react'
 import './FooterClient.scss'
 export default function FooterClient() {
     return (
-        <div className="footer__client row">
-            <div className="footer__top d-flex justify-content-between align-items-center">
-                <div className="footer__logo" style={{backgroundImage: `url(./images/tickets.png)`}}>
-
+        
+            <footer className="footer-distributed">
+            <div className="footer-left">
+                <h3>Booking<span>Movie</span></h3>
+                <p className="footer-links">
+                <a href="#">Home</a>
+                ·
+                <a href="#">Blog</a>
+                ·
+                <a href="#">Pricing</a>
+                ·
+                <a href="#">About</a>
+                ·
+                <a href="#">Faq</a>
+                ·
+                <a href="#">Contact</a>
+                </p>
+            </div>
+            <div className="footer-center">
+                <div>
+                <i className="fa fa-map-marker" />
+                <p><span>Biên Hòa</span> Đồng Nai, VietNam</p>
                 </div>
-                <div className="footer__social">
-                    <div className="ul d-flex">
-                        <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                        <li><a href=""><i class="fab fa-instagram-square"></i></a></li>
-                        <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
-                    </div>
+                <div>
+                <i className="fa fa-phone" />
+                <p>0363494105</p>
+                </div>
+                <div>
+                <i className="fa fa-envelope" />
+                <p><a href="#">jagsiph@gmail.com</a></p>
                 </div>
             </div>
-        </div>
+            <div className="footer-right">
+                <p className="footer-company-about">
+                <span>About the company</span>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, beatae dolorum id tenetur quos vero voluptas. Explicabo rem quibusdam maxime illum ipsam reiciendis possimus at sed! Ducimus perspiciatis quia ipsam.
+                </p>
+                <div className="footer-icons">
+                <a href="#"><i className="fas fa-facebook" /></a>
+                <a href="#"><i className="fa fa-twitter" /></a>
+                <a href="#"><i className="fa fa-linkedin" /></a>
+                <a href="#"><i className="fa fa-github" /></a>
+                </div>
+            </div>
+            </footer>
+
     )
 }
