@@ -88,7 +88,7 @@ export default function Register() {
                                     onChange={formik.handleChange}
                                     name="matKhau"
                                     className="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500"
-                                    type placeholder="Enter your password"
+                                    type="password" placeholder="Enter your password"
                                 />
                             </div>
                             <div className="mt-8 content-center">
@@ -99,7 +99,7 @@ export default function Register() {
                                     onChange={formik.handleChange}
                                     name="email"
                                     className="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500"
-                                    type placeholder="Enter your email"
+                                    type='email' placeholder="Enter your email"
                                 />
                             </div>
                             <div className="mt-8 content-center">
@@ -108,7 +108,7 @@ export default function Register() {
                                 </label>
                                 <input
                                     onChange={formik.handleChange}
-                                    name="soDT"
+                                    name="soDt"
                                     className="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500"
                                     type placeholder="Enter your phone"
                                 />
@@ -126,7 +126,7 @@ export default function Register() {
                             </div>
                             <div>
                                 <button type="submit" className="w-full flex justify-center bg-gradient-to-r from-indigo-500 to-blue-600  hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-4  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
-                                    Đăng nhập
+                                    Đăng Kí
                                 </button>
                             </div>
                             <p className="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">

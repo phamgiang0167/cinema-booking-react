@@ -3,9 +3,8 @@ import ticketApi from 'apis/ticketApi'
 import {
     TICKET_ROOM_MANAGEMENT
 } from './types'
-import swal from "sweetalert"
-
-
+import Swal from 'sweetalert2'
+import swal from 'sweetalert'
 const actFetchTicketRoomApi = (data) => ({
     type: TICKET_ROOM_MANAGEMENT,
     payload: data
@@ -31,7 +30,14 @@ export const actFetchTicketRoom = (id) => {
 }
 
 export const actBookingTiketApi= (ticketDetail) => {
-    console.log(ticketDetail.danhSachVe)
+    Swal.fire({
+        text: "Đang đặt vé...",
+        showConfirmButton: false,
+        didOpen: () => {
+            Swal.showLoading()
+        }
+    })
+    
     return async dispatch => {
         try {
             let theaterInfo = await ticketApi.getChiTietPhongVe(ticketDetail.maLichChieu)
@@ -43,6 +49,7 @@ export const actBookingTiketApi= (ticketDetail) => {
                     if(ticket.maGhe === e.maGhe){
                         if(e.taiKhoanNguoiDat != null){
                             swal("Oops", "Một vài vé của bạn vừa có người đặt mất", "error");
+                            Swal.close()
                             duplicatedSeat = true
                             window.location.reload()
                         }
@@ -52,7 +59,8 @@ export const actBookingTiketApi= (ticketDetail) => {
             if(!duplicatedSeat){
                 ticketApi.postBookingTicket(ticketDetail)
                     .then(() => {
-                        swal("Oops", "Đặt vé thành công", "success");
+                        swal("Chúc mừng", "Đặt vé thành công", "success");
+                        Swal.close()
                         setTimeout(() => {
                             window.location.replace('/history')
                         }, 2000)

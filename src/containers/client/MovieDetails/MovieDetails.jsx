@@ -2,7 +2,7 @@
 import Rating from './components/Rating/Rating'
 import { actFetchMovieDetail } from './modules/actions'
 import moment from 'moment'
-import swal from 'sweetalert'
+import Swal from 'sweetalert2'
 
 //mui
 import { makeStyles } from '@material-ui/core/styles';
@@ -85,7 +85,11 @@ export default function MovieDetails(props) {
                             <button
                                 onClick={() => {
                                     if (calendarCode === '') {
-                                        swal('Bạn chưa chọn ngày giờ chiếu!')
+                                        Swal.fire(
+                                            '',
+                                            'Bạn chưa chọn giờ chiếu?',
+                                            'question'
+                                        )
                                     } else {
 
                                         history.push(`/checkout/${calendarCode}`)
@@ -114,18 +118,30 @@ export default function MovieDetails(props) {
 
     if(loading) return <Loader />
     
-    return (<div style={{ backgroundImage: `url(${movieDetail.hinhAnh})`, backgroundPosition: "center", backgroundSize: "cover", height: "110vh" }}>
+    return (
+    <div 
+        style={{ backgroundImage: `url(${movieDetail.hinhAnh})`, backgroundPosition: "center", backgroundSize: "cover", minHeight: "110vh" }}
+        
+    >
         <CustomCard
             effectColor="rgba(255,255,255,0.4)"
             color="rgba(255,255,255,0.4)"
             blur={80}
             borderRadius={0}
-            style={{ height: "100%" }}
+            style={{ minHeight: "110vh" }}
         >
             <div className="detail__container">
                 <div className="row movie__detail-container">
                     <div className='movie__detail-details col-md-9'>
-                        <div class="movide__detail-image" style={{ backgroundImage: `url(${movieDetail.hinhAnh})` }}></div>
+                        <div 
+                            class="movide__detail-image" 
+                            style={{ backgroundImage: `url(${movieDetail.hinhAnh})` }}
+                            onError={e => {
+                                // console.log(e.target)
+                                e.target.onerror = null;
+                                e.target.style.backgroundImage = `url(/images/error.jpg)`;
+                            }}
+                        ></div>
                         <div className="movie__detail-info">
                             <p>Ngày khởi chiếu: {moment(movieDetail.ngayKhoiChieu).add(10, 'days').calendar()}</p>
                             <p>{movieDetail.tenPhim}</p>

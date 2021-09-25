@@ -14,7 +14,7 @@ import { actFetchAllTheaterSystem } from './modules/actions'
 import moment from 'moment'
 
 //swal
-import swal from 'sweetalert'
+import Swal from 'sweetalert2'
 
 import { Collapse } from 'antd';
 
@@ -158,7 +158,11 @@ export default function Theater(props) {
                                 onClick={
                                     () => {
                                         if(state.date.maLichChieu === undefined){
-                                            swal('Bạn chưa chọn lịch chiếu')
+                                            Swal.fire(
+                                                '',
+                                                'Bạn chưa chọn lịch chiếu?',
+                                                'question'
+                                            )
                                         }else{
                                             history.push(`checkout/${state.date.maLichChieu}`)
                                         }

@@ -116,7 +116,11 @@ function MovieList(props) {
             <div className="row">
                 {renderMovies(currentPage)}
             </div>
-            <Pagination simple current={currentPage} total={totalPage*10} onChange={handleChange} />
+            <Pagination 
+                simple current={currentPage} 
+                total={totalPage*10} 
+                onChange={handleChange} 
+                style={{margin: "0 auto", textAlign: "center"}}/>
         </div>
     )
 }
