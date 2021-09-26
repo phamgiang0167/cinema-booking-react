@@ -1,0 +1,47 @@
+.user{
+    padding-top: 60px;
+    .relative{
+        margin-bottom: 20px;
+        input{
+            cursor: not-allowed;
+        }
+    }
+    .btn_update{
+        cursor: pointer;
+        padding: 10px 20px;
+        background-color: #d03940;
+        border: 1px solid #d03940;
+        color: white;
+        text-align: center;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        transition: all .5s;
+        &:hover{
+            border: 1px solid #d03940;
+            background-color: white;
+            color: #d03940;
+        }
+    }
+    .btn_confirm{
+        cursor: pointer;
+        padding: 10px 20px;
+        background-color: white;
+        border: 1px solid #d03940;
+        color: #d03940;
+        text-align: center;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        transition: all .5s;
+        cursor: not-allowed;
+        &:disabled{
+            background-color: rgb(146, 144, 144);
+            color: white;
+            border: none;
+            pointer-events: none;
+        }
+        &:hover{
+            background-color: #d03940;
+            color: white;
+        }
+    }
+}

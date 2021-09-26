@@ -7,6 +7,7 @@ const Login = lazy(() => import('../containers/client/Login/Login'))
 const Home = lazy(() => import('../containers/client/Home/Home'))
 const Register = lazy(() => import('../containers/client/Register/Register'))
 const BookingHistory = lazy(() => import('../containers/client/BookingHistory/BookingHistory'))
+const User = lazy(() => import('../containers/client/Personal/User'))
 export const clientRoutes = [
     {
         path: '/',
@@ -38,6 +39,11 @@ export const clientRoutes = [
       component: BookingHistory,
       exact: true
     },
+    {
+      path: '/user',
+      component: User,
+      exact: true
+    }
 
 ];
 

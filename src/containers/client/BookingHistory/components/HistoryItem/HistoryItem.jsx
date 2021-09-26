@@ -58,7 +58,7 @@ export default function HistoryItem(props) {
                     })}</h4>
                     <h4>Hệ thống rạp: {historyTicket.danhSachGhe[0].tenHeThongRap}</h4>
                     <h4>Giá vé: {historyTicket.giaVe}</h4>
-                    <h4>Ngày đặt vé: {historyTicket.ngayDat}</h4>
+                    <h4>Ngày đặt vé: {moment(historyTicket.ngayDat).format("hh:mm DD-MM-YYYY")}</h4>
                     <h4>Thời lượng phim: {historyTicket.thoiLuongPhim}</h4>
                 </div>
             </Modal>
